@@ -13,11 +13,11 @@
     --color-bg: #fff;
     --color-bg-alt: #f8f9fa;
     --color-accent: #e74c3c;
-    
+
     /* Typography */
     --font-serif: 'Lora', Georgia, serif;
     --font-sans: 'Source Sans 3', -apple-system, sans-serif;
-    
+
     /* Spacing */
     --spacing-unit: 1rem;
     --max-width: 1000px;
@@ -32,6 +32,7 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* keep anchored headings clear of the fixed navbar */
 }
 
 body {
@@ -96,6 +97,16 @@ em {
     font-style: italic;
 }
 
+/* Generic lists inside content sections */
+section ul:not([class]) {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+section ul:not([class]) li {
+    margin-bottom: 0.4rem;
+}
+
 /* ===================================
    Layout
    =================================== */
@@ -109,6 +120,21 @@ em {
 .main-content {
     margin-top: 80px;
     padding-bottom: 4rem;
+}
+
+/* Narrow single-column pages (publications, news, etc.) */
+.page-content {
+    max-width: 900px;
+    margin-top: 110px;
+}
+
+.page-content > section > h2:first-child {
+    margin-top: 0;
+}
+
+.page-intro {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
 }
 
 /* ===================================
@@ -130,6 +156,7 @@ em {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .site-title {
@@ -137,6 +164,7 @@ em {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
+    white-space: nowrap;
 }
 
 .site-title:hover {
@@ -145,7 +173,10 @@ em {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    column-gap: 1.6rem;
+    row-gap: 0.25rem;
 }
 
 .nav-links a {
@@ -154,6 +185,11 @@ em {
 }
 
 .nav-links a:hover {
+    color: var(--color-link);
+}
+
+.nav-links a.active {
+    font-weight: 600;
     color: var(--color-link);
 }
 
@@ -248,12 +284,73 @@ em {
     font-size: 1.05rem;
 }
 
+.job-market {
+    margin: 1.5rem 0 0;
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid var(--color-accent);
+    background: #fdf2f1;
+    color: #a93226;
+    font-weight: 600;
+}
+
+.job-market a {
+    color: #a93226;
+    text-decoration: underline;
+}
+
+/* At-a-glance stats */
+.at-a-glance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin: 2rem 0 0;
+    list-style: none;
+}
+
+.at-a-glance li {
+    padding: 0.85rem 1rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    line-height: 1.35;
+}
+
+.at-a-glance .stat-value {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.at-a-glance .stat-label {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
 /* ===================================
    Sections
    =================================== */
 
 section {
     margin-bottom: 3rem;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0 0 1.5rem;
+}
+
+.keywords li {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
 }
 
 .research-list {
@@ -275,12 +372,128 @@ section {
     font-weight: bold;
 }
 
+.ref-tags {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    white-space: nowrap;
+}
+
 .collaboration-note {
     margin-top: 1.5rem;
     padding: 1rem;
     background: var(--color-bg-alt);
     border-left: 3px solid var(--color-link);
     font-size: 0.95rem;
+}
+
+/* ===================================
+   CV-style entries (experience, education, teaching)
+   =================================== */
+
+.cv-entry {
+    margin-bottom: 1.75rem;
+}
+
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.entry-title {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.entry-date {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    white-space: nowrap;
+}
+
+.entry-sub {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.4rem;
+}
+
+.cv-entry ul {
+    padding-left: 1.25rem;
+}
+
+.cv-entry ul li {
+    margin-bottom: 0.35rem;
+}
+
+h3 .entry-date {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+h3.entry-head {
+    margin-bottom: 0.5rem;
+}
+
+/* Dated lists (awards, talks, funding) */
+.dated-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.dated-list li {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.dated-list .date {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.dated-list .amount {
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+/* Two-column definition rows (skills, reviewing, teaching interests) */
+.def-list {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.def-list dt {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.def-list dd {
+    margin: 0;
+}
+
+details {
+    margin-top: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    background: var(--color-bg-alt);
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+details[open] summary {
+    margin-bottom: 0.75rem;
 }
 
 /* ===================================
@@ -295,36 +508,41 @@ section {
 
 .pub-list {
     list-style: none;
-    counter-reset: publication-counter;
     padding-left: 0;
 }
 
-.pub-list[reversed] {
-    counter-reset: publication-counter calc(var(--list-length, 10) + 1);
-}
-
 .pub-list li {
-    counter-increment: publication-counter -1;
     margin-bottom: 1.5rem;
-    padding-left: 2.5rem;
+    padding-left: 3.25rem;
     position: relative;
     line-height: 1.6;
 }
 
-.pub-list:not([reversed]) li {
-    counter-increment: publication-counter;
-}
-
-.pub-list li::before {
-    content: "[" counter(publication-counter) "]";
+.pub-label {
     position: absolute;
     left: 0;
     font-weight: 600;
     color: var(--color-text-light);
 }
 
+.pub-list li:target {
+    background: #fffbe6;
+    outline: 6px solid #fffbe6;
+}
+
+.pub-title {
+    color: var(--color-primary);
+}
+
 .pub-list a {
     font-weight: 400;
+}
+
+.mentee {
+    font-size: 0.8em;
+    vertical-align: super;
+    color: var(--color-text-light);
+    margin-left: 1px;
 }
 
 .award {
@@ -332,6 +550,11 @@ section {
     margin-left: 0.5rem;
     color: var(--color-accent);
     font-weight: 600;
+}
+
+.status {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
 }
 
 /* ===================================
@@ -350,6 +573,31 @@ section {
 
 .news-list strong {
     color: var(--color-primary);
+}
+
+/* ===================================
+   Mentoring
+   =================================== */
+
+.mentee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.mentee-table th,
+.mentee-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mentee-table th {
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+    width: 11rem;
 }
 
 /* ===================================
@@ -384,32 +632,62 @@ section {
     color: var(--color-text-light);
 }
 
+.footer p {
+    margin-bottom: 0;
+}
+
 /* ===================================
    Responsive Design
    =================================== */
+
+@media (max-width: 900px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        column-gap: 1.1rem;
+        font-size: 0.95rem;
+    }
+
+    .main-content {
+        margin-top: 120px;
+    }
+
+    .page-content {
+        margin-top: 130px;
+    }
+
+    html {
+        scroll-padding-top: 130px;
+    }
+}
 
 @media (max-width: 768px) {
     :root {
         --max-width: 100%;
     }
-    
+
     .container {
         padding: 0 1.5rem;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
     }
-    
+
     .profile-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .profile-sidebar {
         position: static;
         display: flex;
@@ -417,18 +695,22 @@ section {
         align-items: center;
         text-align: center;
     }
-    
+
     .profile-image-wrapper {
         max-width: 250px;
     }
-    
-    .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
+
+    .def-list {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
     }
-    
-    .main-content {
-        margin-top: 60px;
+
+    .def-list dd {
+        margin-bottom: 0.6rem;
+    }
+
+    .mentee-table th {
+        width: auto;
     }
 }
 
@@ -436,19 +718,28 @@ section {
     .container {
         padding: 0 1rem;
     }
-    
+
     h1 {
         font-size: 1.75rem;
     }
-    
+
     .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
+        font-size: 0.9rem;
+        column-gap: 0.9rem;
     }
-    
-    .navbar .container {
-        flex-direction: column;
-        gap: 0.75rem;
+
+    .dated-list li {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .pub-list li {
+        padding-left: 0;
+    }
+
+    .pub-label {
+        position: static;
+        margin-right: 0.3rem;
     }
 }
 
@@ -461,16 +752,17 @@ section {
     .footer {
         display: none;
     }
-    
-    .main-content {
+
+    .main-content,
+    .page-content {
         margin-top: 0;
     }
-    
+
     a {
         color: var(--color-text);
         text-decoration: underline;
     }
-    
+
     .profile-grid {
         grid-template-columns: 1fr;
     }
