@@ -175,8 +175,9 @@ section ul:not([class]) li {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    column-gap: 1.6rem;
+    column-gap: 1.3rem;
     row-gap: 0.25rem;
+    font-size: 0.97rem;
 }
 
 .nav-links a {
@@ -198,7 +199,7 @@ section ul:not([class]) li {
    =================================== */
 
 .profile-section {
-    margin-top: 2rem;
+    padding-top: 2rem;
 }
 
 .profile-grid {
@@ -296,36 +297,6 @@ section ul:not([class]) li {
 .job-market a {
     color: #a93226;
     text-decoration: underline;
-}
-
-/* At-a-glance stats */
-.at-a-glance {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0.75rem;
-    margin: 2rem 0 0;
-    list-style: none;
-}
-
-.at-a-glance li {
-    padding: 0.85rem 1rem;
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    line-height: 1.35;
-}
-
-.at-a-glance .stat-value {
-    display: block;
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-primary);
-}
-
-.at-a-glance .stat-label {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
 }
 
 /* ===================================
@@ -435,6 +406,32 @@ h3 .entry-date {
 
 h3.entry-head {
     margin-bottom: 0.5rem;
+}
+
+/* Compact positions list (home page) */
+.position-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.position-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.position-list li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .position-list li {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 /* Dated lists (awards, talks, funding) */
@@ -640,7 +637,7 @@ details[open] summary {
    Responsive Design
    =================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
     .navbar .container {
         flex-direction: column;
         align-items: flex-start;
@@ -654,15 +651,15 @@ details[open] summary {
     }
 
     .main-content {
-        margin-top: 120px;
-    }
-
-    .page-content {
         margin-top: 130px;
     }
 
+    .page-content {
+        margin-top: 150px;
+    }
+
     html {
-        scroll-padding-top: 130px;
+        scroll-padding-top: 150px;
     }
 }
 
