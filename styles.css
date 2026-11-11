@@ -601,8 +601,22 @@ details[open] summary {
 
 .pub-list li {
     margin-bottom: 1.25rem;
-    padding-left: 0;
+    padding-left: 3.25rem;
+    position: relative;
     line-height: 1.6;
+}
+
+/* One marker only: the [J1]/[C1] label. No bullets or auto-numbers. */
+.pub-list li::before,
+.pub-list li::marker {
+    content: none;
+}
+
+.pub-label {
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: var(--color-text-light);
 }
 
 .pub-list li:target {
@@ -811,6 +825,15 @@ details[open] summary {
     .dated-list li {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    .pub-list li {
+        padding-left: 0;
+    }
+
+    .pub-label {
+        position: static;
+        margin-right: 0.3rem;
     }
 
     .pub-list li {
