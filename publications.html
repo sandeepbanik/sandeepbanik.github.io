@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>Publications - Sandeep Banik</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="site-title">Sandeep Banik</a>
-            <div class="nav-links">
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <div class="nav-links" id="site-nav">
                 <a href="index.html#research">Research</a>
                 <a href="publications.html" class="active">Publications</a>
                 <a href="talks.html">Talks</a>
@@ -222,7 +224,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© <span id="year">2026</span> Sandeep Banik. Last updated: November 2026.</p>
+            <p>© <span id="year">2026</span> Sandeep Banik. Last updated: <span id="last-updated">November 2026</span>.</p>
         </div>
     </footer>
 
