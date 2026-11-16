@@ -693,6 +693,9 @@ details[open] summary {
 
 .more-link {
     margin-top: 0.5rem;
+}
+
+.more-link a {
     font-weight: 600;
 }
 
