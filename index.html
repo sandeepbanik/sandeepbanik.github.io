@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>Sandeep Banik</title>
     <meta name="description" content="Sandeep Banik - Postdoctoral Research Associate at UIUC developing game-theoretic and control-theoretic foundations for shared autonomy, safe learning-enabled control, and resilient cyber-physical systems.">
 
@@ -21,7 +22,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="site-title">Sandeep Banik</a>
-            <div class="nav-links">
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <div class="nav-links" id="site-nav">
                 <a href="#research">Research</a>
                 <a href="publications.html">Publications</a>
                 <a href="talks.html">Talks</a>
@@ -53,15 +55,13 @@
 
                         <div class="social-links">
                             <a href="mailto:baniksan@illinois.edu">baniksan@illinois.edu</a>
-                            <a href="https://scholar.google.com/citations?hl=en&amp;user=l1mM0GAAAAAJ" target="_blank">
-                                <i class="ai ai-google-scholar"></i> Google Scholar
-                            </a>
+                            <a href="https://scholar.google.com/citations?hl=en&amp;user=l1mM0GAAAAAJ" target="_blank"><i class="ai ai-google-scholar"></i>Google Scholar</a>
                             <a href="https://github.com/sandeepbanik" target="_blank">GitHub</a>
                             <a href="https://linkedin.com/in/sandeepbanik" target="_blank">LinkedIn</a>
                         </div>
 
                         <div class="documents">
-                            <a href="./CV_new.pdf" class="doc-link" target="_blank"><strong>[CV]</strong></a>
+                            <a href="./CV.pdf" class="doc-link" target="_blank"><strong>[CV]</strong></a>
                         </div>
                     </div>
                 </aside>
@@ -93,6 +93,19 @@
                         </p>
                     </div>
 
+
+                    <!-- Recent News (kept in sync with news.html by script.js) -->
+                    <section id="recent-news">
+                        <h2>Recent News</h2>
+                        <ul class="news-list" id="recent-news-list">
+                            <li><strong>Fall 2026:</strong> Teaching Assistant for ME 562: Robust Adaptive Control (graduate) at UIUC</li>
+                            <li><strong>2026:</strong> <em>"Flip-Team: Cooperative Takeover Games with Stochastic Human Override"</em> accepted at IEEE CDC 2026</li>
+                            <li><strong>2026:</strong> <em>"Principled Authority Switching for Shared Autonomy in Human-Robot Teams"</em> at IEEE RO-MAN 2026; also served as Session Co-Chair for <em>Cognition, Intent &amp; Embodied AI VIII</em></li>
+                            <li><strong>2026:</strong> Serving as Technical Program Chair for GameSec 2026</li>
+                        </ul>
+                        <p class="more-link"><a href="news.html">More news →</a></p>
+                    </section>
+
                     <!-- Research Interests -->
                     <section id="research">
                         <h2>Research Interests</h2>
@@ -110,23 +123,19 @@
                         <ul class="research-list">
                             <li><strong>Shared Autonomy:</strong> Cooperative takeover games that allocate authority between a
                             human and an autonomous agent under stochastic human override, and principled authority switching
-                            in human–robot teams.
-                            <span class="ref-tags">[<a href="publications.html#C1">C1</a>, <a href="publications.html#C2">C2</a>, <a href="publications.html#S3">S3</a>]</span></li>
+                            in human–robot teams.</li>
 
                             <li><strong>Certifiable Learning-Enabled Control:</strong> L1-DS, a robust control layer for learned
                             motion policies with provable tracking bounds on black-box robots; distributionally robust imitation
-                            learning with a priori robustness and performance guarantees; L1 adaptive state estimation.
-                            <span class="ref-tags">[<a href="publications.html#C3">C3</a>, <a href="publications.html#C4">C4</a>, <a href="publications.html#C5">C5</a>]</span></li>
+                            learning with a priori robustness and performance guarantees; L1 adaptive state estimation.</li>
 
                             <li><strong>Game-Theoretic Security of Cyber-Physical Systems:</strong> FlipDyn, a class of dynamic games
                             for resource takeovers in dynamical systems and graphs; dynamic games with stopping states for
-                            attack-resilient motion planning; adversary-in-the-loop defense planning.
-                            <span class="ref-tags">[<a href="publications.html#J1">J1</a>–<a href="publications.html#J3">J3</a>, <a href="publications.html#C8">C8</a>–<a href="publications.html#C12">C12</a>]</span></li>
+                            attack-resilient motion planning; adversary-in-the-loop defense planning.</li>
 
                             <li><strong>Safe Aerial Autonomy &amp; Multi-Agent Coordination:</strong> System-Theoretic Process Analysis
                             (STPA) for vision-based VTOL landing and take-off, potential-game coordination for time-critical
-                            multi-agent missions, and uncertainty-aware planning for UAVs.
-                            <span class="ref-tags">[<a href="publications.html#C6">C6</a>, <a href="publications.html#C7">C7</a>, <a href="publications.html#S1">S1</a>]</span></li>
+                            multi-agent missions, and uncertainty-aware planning for UAVs.</li>
                         </ul>
 
                         <p class="collaboration-note">
@@ -173,7 +182,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© <span id="year">2026</span> Sandeep Banik. Last updated: November 2026.</p>
+            <p>© <span id="year">2026</span> Sandeep Banik. Last updated: <span id="last-updated">November 2026</span>.</p>
         </div>
     </footer>
 
